@@ -1,7 +1,0 @@
-name: ParticleMaths
-version: 1.0-SNAPSHOT
-main: org.thehunter365.particlemaths.ParticleMaths
-authors: [TheHunter365]
-commands:
-  particle:
-  form:
