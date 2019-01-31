@@ -1,0 +1,7 @@
+name: ParticleMaths
+version: ${project.version}
+main: org.thehunter365.particlemaths.ParticleMaths
+authors: [TheHunter365]
+commands:
+  particle:
+  form:
