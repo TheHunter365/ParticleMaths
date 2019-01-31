@@ -5,8 +5,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.thehunter365.particlemaths.ParticleMaths;
-import org.thehunter365.particlemaths.form.ConicalRose;
-import org.thehunter365.particlemaths.form.SphericalSinusoid;
+import org.thehunter365.particlemaths.form.Rose;
 
 public class FormCommand implements CommandExecutor {
 
@@ -21,7 +20,7 @@ public class FormCommand implements CommandExecutor {
         if (label.equalsIgnoreCase("form"))
         if (sender instanceof Player) {
             Player player = (Player) sender;
-            new ConicalRose(player.getLocation()).runTaskTimer(particleMaths, 0, 1);
+            new Rose(player.getLocation()).runTaskTimer(particleMaths, 0, 1);
 
         }
         return false;
