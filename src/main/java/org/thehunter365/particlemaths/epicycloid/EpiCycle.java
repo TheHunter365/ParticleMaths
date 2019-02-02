@@ -43,25 +43,3 @@ public class EpiCycle extends BukkitRunnable {
 
     }
 }
-
-
-
-//double x = Math.sin(time) + a * Math.sin(2 * time) + Math.sin(3 * time);
-//double z = Math.cos(time) + a * Math.cos(2 * time) + Math.cos(3 * time);
-
-//double z = Math.sin(time) + 4*Math.sin(2*time);
-
-        /*int re = 0;
-        int im = 1;
-
-        double expRe = Math.exp(re) * Math.cos(im);
-        double expIm = Math.exp(re) * Math.sin(im);
-
-        double x = 0.5*Math.cos(time/2) + Math.cos(time);
-        double z = 1.5*Math.sin(time/2) + Math.sin(time);*/
-        /* Quadrifolium
-        double q = 2;
-        double x = 2 * q * Math.pow(Math.sin(time), 2) * Math.cos(time);
-        double z = 2 * q * Math.pow(Math.cos(time), 2) * Math.sin(time);
-         */
-//double x = Math.cos(time) + 2*Math.cos(time+Math.PI/4);

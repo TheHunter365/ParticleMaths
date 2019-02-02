@@ -1,47 +1,48 @@
 package org.thehunter365.particlemaths.form;
 
 import org.bukkit.Location;
-import org.bukkit.Particle;
-import org.bukkit.scheduler.BukkitRunnable;
+import org.thehunter365.particlemaths.math.Curve;
 
-public class Basin extends BukkitRunnable {
+public class Basin extends Curve {
 
-    private Location location;
-
-    private double time;
-    private double period;
-    private int duration;
+    double n;
+    double a;
+    double b;
 
     public Basin(Location location) {
-        this.location = location;
-
-        this.period = 2*Math.PI;
-        this.time = 0;
-        this.duration = 20*120;
-
+        super(location);
+        this.n = 12;
+        this.a = 8;
+        this.b = 8;
     }
 
     @Override
-    public void run() {
-        for (int i = 0; i < 16; i++) {
-            this.time += Math.PI/256;
+    public int duration() {
+        return 20*120;
+    }
 
-            double n = 12;
-            double a = 8;
-            double b = 8;
+    @Override
+    public int loopPerTicks() {
+        return 16;
+    }
 
-            double x = a*Math.cos(time)*Math.cos(n*time);
-            double y = a*Math.sin(time)*Math.cos(n*time);
-            double z = b*Math.pow(Math.cos(n*time), 2);
+    @Override
+    public double timeInc() {
+        return Math.PI/64;
+    }
 
-            this.location.add(y, z, x);
-            this.location.getWorld().spawnParticle(Particle.FIREWORKS_SPARK, location, 0);
-            this.location.subtract(y, z, x);
+    @Override
+    public double getX(double t) {
+        return a*Math.cos(t)*Math.cos(n*t);
+    }
 
-            if (time > period) this.time = 0;
-        }
-        this.duration--;
+    @Override
+    public double getY(double t) {
+        return a*Math.sin(t)*Math.cos(n*t);
+    }
 
-        if (duration == 0)this.cancel();
+    @Override
+    public double getZ(double t) {
+        return b*Math.pow(Math.cos(n*t), 2);
     }
 }

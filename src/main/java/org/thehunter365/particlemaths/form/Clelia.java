@@ -1,12 +1,50 @@
 package org.thehunter365.particlemaths.form;
 
 import org.bukkit.Location;
-import org.bukkit.Particle;
-import org.bukkit.scheduler.BukkitRunnable;
+import org.thehunter365.particlemaths.math.Curve;
 
-public class Clelia extends BukkitRunnable {
+public class Clelia extends Curve {
 
-    private Location location;
+    private double n;
+    private double r;
+
+    public Clelia(Location location) {
+        super(location);
+        this.n = 9/4;
+        this.r = 3;
+    }
+
+    @Override
+    public int duration() {
+        return 120*20;
+    }
+
+    @Override
+    public int loopPerTicks() {
+        return 16;
+    }
+
+    @Override
+    public double timeInc() {
+        return Math.PI/64;
+    }
+
+    @Override
+    public double getX(double t) {
+        return r * Math.cos(n*t)*Math.cos(t);
+    }
+
+    @Override
+    public double getY(double t) {
+        return r*Math.cos(n*t)*Math.sin(t);
+    }
+
+    @Override
+    public double getZ(double t) {
+        return r*Math.sin(n*t);
+    }
+
+    /*private Location location;
 
     private double time;
     private int duration;
@@ -38,5 +76,5 @@ public class Clelia extends BukkitRunnable {
         this.duration--;
 
         if (duration == 0)this.cancel();
-    }
+    }*/
 }

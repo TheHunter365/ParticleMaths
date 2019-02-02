@@ -12,7 +12,7 @@ public abstract class Curve extends BukkitRunnable implements ParametricEquation
     private World world;
 
     private int duration;
-    private double time;
+    private double t;
 
     public Curve(Location location) {
         this.location = location;
@@ -20,14 +20,14 @@ public abstract class Curve extends BukkitRunnable implements ParametricEquation
         this.world = location.getWorld();
 
         this.duration = duration();
-        this.time = 0;
+        this.t = 0;
     }
 
     public void run() {
 
         for (int i = 0; i < loopPerTicks(); i++) {
-            time += timeInc();
-            double x = getX(time), y = getY(time), z = getZ(time);
+            t += timeInc();
+            double x = getX(t), y = getY(t), z = getZ(t);
             location.add(x, z, y);
             this.world.spawnParticle(Particle.FIREWORKS_SPARK, location, 0);
             location.subtract(x, z, y);

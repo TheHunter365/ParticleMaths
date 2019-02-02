@@ -11,12 +11,12 @@ public class Rose extends Curve {
 
     @Override
     public int duration() {
-        return 30*20;
+        return 30*120;
     }
 
     @Override
     public int loopPerTicks() {
-        return 12;
+        return 16;
     }
 
     @Override
