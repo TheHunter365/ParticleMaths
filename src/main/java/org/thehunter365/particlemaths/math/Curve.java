@@ -3,7 +3,6 @@ package org.thehunter365.particlemaths.math;
 import org.bukkit.Location;
 import org.bukkit.Particle;
 import org.bukkit.World;
-import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
 public abstract class Curve extends BukkitRunnable implements ParametricEquation {
