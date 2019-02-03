@@ -16,31 +16,31 @@ public class Rose extends Curve {
 
     @Override
     public int loopPerTicks() {
-        return 16;
+        return 12;
     }
 
     @Override
     public double timeInc() {
-        return Math.PI/128;
+        return Math.PI/256;
     }
 
     @Override
     public double getX(double t) {
-        double n = 1+t*.2;
+        double n = 1+t*.25;
         double a = 6+t/6;
         return a * Math.cos(n*t)*Math.cos(t);
     }
 
     @Override
     public double getY(double t) {
-        double n = 1+t*.2;
+        double n = 1+t*.25;
         double a = 6+t/6;
         return a * Math.cos(n*t)*Math.sin(t);
     }
 
     @Override
     public double getZ(double t) {
-        double n = 1+t*.2;
+        double n = 1+t*.25;
         double b = 6-t/6;
         return b* Math.cos(n*t);
     }

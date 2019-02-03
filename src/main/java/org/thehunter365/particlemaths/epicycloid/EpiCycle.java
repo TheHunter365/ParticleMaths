@@ -28,8 +28,7 @@ public class EpiCycle extends BukkitRunnable {
             Location location = player.getLocation();
 
             double y = 2;
-
-            double q = 9;
+            double q = 4;
 
             double x = ((q-1)*Math.cos(time) + 1/q*Math.cos((q-1)*time));
             double z = ((q-1)*Math.sin(time) + 1/q*Math.sin((q-1)*time));

@@ -3,6 +3,7 @@ package org.thehunter365.particlemaths.math;
 import org.bukkit.Location;
 import org.bukkit.Particle;
 import org.bukkit.World;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
 public abstract class Curve extends BukkitRunnable implements ParametricEquation {
@@ -27,7 +28,11 @@ public abstract class Curve extends BukkitRunnable implements ParametricEquation
 
         for (int i = 0; i < loopPerTicks(); i++) {
             t += timeInc();
-            double x = getX(t), y = getY(t), z = getZ(t);
+
+            double x = getX(t),
+                    y = getY(t),
+                    z = getZ(t);
+
             location.add(x, z, y);
             this.world.spawnParticle(Particle.FIREWORKS_SPARK, location, 0);
             location.subtract(x, z, y);

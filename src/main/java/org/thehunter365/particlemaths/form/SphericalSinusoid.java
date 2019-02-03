@@ -1,49 +1,49 @@
 package org.thehunter365.particlemaths.form;
 
 import org.bukkit.Location;
-import org.bukkit.Particle;
-import org.bukkit.scheduler.BukkitRunnable;
+import org.thehunter365.particlemaths.math.Curve;
 
-public class SphericalSinusoid extends BukkitRunnable {
-    private Location location;
+public class SphericalSinusoid extends Curve {
 
-    private double time;
-    private double period;
-    private int duration;
-    private int a;
+    private double a = 8;
+    private double k = a/12;
+    private double n = a*a;
 
     public SphericalSinusoid(Location location) {
-        this.location = location;
-        a = 8;
-        this.period = 2*Math.PI;
-        this.time = 0;
-        this.duration = 20*120;
-
+        super(location);
     }
 
     @Override
-    public void run() {
-        double k = a/12;
-        double n = a*a;
-
-        for (int i = 0; i < 64; i++) {
-            this.time += Math.PI/256;
-
-            double sqrt = Math.sqrt(1+k*k+Math.pow(Math.cos(n*time), 2));
-            double x = a * (Math.cos(time)/sqrt);
-            double y = a * (Math.sin(time)/sqrt);
-            double z = a * (k*Math.cos(n*time)/sqrt);
-
-            this.location.add(y, z, x);
-            this.location.getWorld().spawnParticle(Particle.FIREWORKS_SPARK, location, 0);
-            this.location.subtract(y, z, x);
-
-            if (time > period) this.time = 0;
-        }
-        this.duration--;
-
-        if (duration % 5 == 0)a--;
-        if (a == 0) a = 8;
-        if (duration == 0)this.cancel();
+    public int duration() {
+        return 120*20;
     }
+
+    @Override
+    public int loopPerTicks() {
+        return 8;
+    }
+
+    @Override
+    public double timeInc() {
+        return Math.PI/64;
+    }
+
+    @Override
+    public double getX(double t) {
+        double sqrt = Math.sqrt(1+k*k+Math.pow(Math.cos(n*t), 2));
+        return a*(Math.cos(t)/sqrt);
+    }
+
+    @Override
+    public double getY(double t) {
+        double sqrt = Math.sqrt(1+k*k+Math.pow(Math.cos(n*t), 2));
+        return a * (Math.sin(t)/sqrt);
+    }
+
+    @Override
+    public double getZ(double t) {
+        double sqrt = Math.sqrt(1+k*k+Math.pow(Math.cos(n*t), 2));
+        return a * (k*(1/Math.cos(n*t))/sqrt);
+    }
+
 }

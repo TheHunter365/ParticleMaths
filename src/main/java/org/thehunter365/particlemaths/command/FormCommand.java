@@ -5,8 +5,6 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.thehunter365.particlemaths.ParticleMaths;
-import org.thehunter365.particlemaths.form.Basin;
-import org.thehunter365.particlemaths.form.Clelia;
 import org.thehunter365.particlemaths.form.Rose;
 
 public class FormCommand implements CommandExecutor {
