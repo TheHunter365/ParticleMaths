@@ -5,4 +5,4 @@ jdk:
 
 sudo: false
 
-script: mvn clean install
+script: mvn test -B
