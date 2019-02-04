@@ -1,3 +1,16 @@
 language: java
 sudo: false
 script: mvn clean install
+
+env:
+  global:
+    secure: "JEOCD8fsZe/WB+W+4Nkvqgi95cYyfhFpMKQ0UialKdXV7v0SUJHgtlnYBjy9sYzH8lgFGVJhoCRBwshV6+nCV3Gnym8dlsdhLkRErZHnEIG2yArML8l+rywnZdvbCuweH21d7pNq6uC3/+Rx1dTWIJrhdGC88ex95DbVkuHwJroIuYtsJFkVmxAKO1GEEBq+D5/235UwAJMKNqU1VpOwUyWWVWW4IDr+n+rJE9LnRtYmh9SrmSec8e1H1aSZQhtG3f3OY7P8QVm0JiJevCaO8rB7CEgLD0StGWNVMJW5z58MKnCu3PFVFN2t3UaQ2e+L19uYmijC97e9ed8/H2ISfFSQg5/y41sL7q0NhcvSe5iI2XqiT+DU1yyt2oD/aQxWMAEdlTnpbWzGZaVXRSurYK7732d8NyNw9nhUywm5o/F2AS2CJOiH237BCqbGyXiUqKDlgyqoVKmbDJ+7ul7Zx+1fJ8y0PfwUAlGdnhGwI2dZhxKO/vMxUHYgYcA8jgziH62BAGEjVo0qv3TMB66AlPD5IXDkW8VnBQ51yMVhXh6OvOJOXnpQcqNfBLqdzdQEqJJorMdL+fBsMjzUordvm+VCEHSVKTElMMkf9yz+qTj0soQFQCGmocKENsUorxKHItoHFMxGzbSs8R997aeWiMt+3VTYnuuxWaCAcr+wxRw="
+
+deploy:
+  provider: releases
+  api_key: $GITHUB_KEY
+  file: $TRAVIS_BUILD/ParticleMaths-1.0-SNAPSHOT.jar
+  skip_cleanup: true
+  on:
+    branch: master
+    tags: true
