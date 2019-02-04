@@ -9,7 +9,7 @@ public class ParticleMaths extends JavaPlugin {
     @Override
     public void onEnable() {
         getCommand("particle").setExecutor(new ParticleCommand(this));
-        getCommand("form").setExecutor(new FormCommand(this));
+        getCommand("curves").setExecutor(new FormCommand(this));
     }
 
     @Override

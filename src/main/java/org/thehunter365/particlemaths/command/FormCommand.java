@@ -5,7 +5,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.thehunter365.particlemaths.ParticleMaths;
-import org.thehunter365.particlemaths.form.Rose;
+import org.thehunter365.particlemaths.curves.Rose;
 
 public class FormCommand implements CommandExecutor {
 
@@ -17,7 +17,7 @@ public class FormCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (label.equalsIgnoreCase("form"))
+        if (label.equalsIgnoreCase("curves"))
         if (sender instanceof Player) {
             Player player = (Player) sender;
             new Rose(player.getLocation()).runTaskTimer(particleMaths, 0, 1);

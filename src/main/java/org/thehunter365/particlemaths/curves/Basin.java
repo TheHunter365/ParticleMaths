@@ -1,4 +1,4 @@
-package org.thehunter365.particlemaths.form;
+package org.thehunter365.particlemaths.curves;
 
 import org.bukkit.Location;
 import org.thehunter365.particlemaths.math.Curve;
