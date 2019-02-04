@@ -36,7 +36,7 @@ public abstract class Curve extends BukkitRunnable implements ParametricEquation
             this.world.spawnParticle(Particle.FIREWORKS_SPARK, location, 0);
             location.subtract(x, z, y);
         }
-        this.duration--;
+        if (this.duration != -1) this.duration--; // adding an infinite mode
         if (duration == 0) this.cancel();
     }
 
