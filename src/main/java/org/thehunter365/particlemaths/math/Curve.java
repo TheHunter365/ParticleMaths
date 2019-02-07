@@ -4,8 +4,9 @@ import org.bukkit.Location;
 import org.bukkit.Particle;
 import org.bukkit.World;
 import org.bukkit.scheduler.BukkitRunnable;
+import org.thehunter365.particlemaths.json.GsonSerializable;
 
-public abstract class Curve extends BukkitRunnable implements ParametricEquation {
+public abstract class Curve extends BukkitRunnable implements ParametricEquation, GsonSerializable {
 
     private Location location;
 
