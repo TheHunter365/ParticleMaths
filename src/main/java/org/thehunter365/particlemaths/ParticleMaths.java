@@ -12,7 +12,6 @@ public class ParticleMaths extends JavaPlugin {
     private JsonManager jsonManager;
     private CurvesManager curvesManager;
 
-
     @Override
     public void onEnable() {
         getCommand("particle").setExecutor(new ParticleCommand(this));
