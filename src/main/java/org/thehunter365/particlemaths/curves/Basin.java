@@ -1,6 +1,7 @@
-package org.thehunter365.particlemaths.form;
+package org.thehunter365.particlemaths.curves;
 
 import org.bukkit.Location;
+import org.bukkit.Particle;
 import org.thehunter365.particlemaths.math.Curve;
 
 public class Basin extends Curve {
@@ -29,6 +30,11 @@ public class Basin extends Curve {
     @Override
     public double timeInc() {
         return Math.PI/64;
+    }
+
+    @Override
+    public Particle getParticle() {
+        return Particle.FIREWORKS_SPARK;
     }
 
     @Override

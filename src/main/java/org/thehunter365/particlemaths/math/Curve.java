@@ -33,7 +33,7 @@ public abstract class Curve extends BukkitRunnable implements ParametricEquation
                     z = getZ(t);
 
             location.add(x, z, y);
-            this.world.spawnParticle(Particle.FIREWORKS_SPARK, location, 0);
+            this.world.spawnParticle(getParticle(), location, 0);
             location.subtract(x, z, y);
         }
         if (this.duration != -1) this.duration--; // adding an infinite mode
@@ -45,4 +45,7 @@ public abstract class Curve extends BukkitRunnable implements ParametricEquation
     public abstract int loopPerTicks();
 
     public abstract double timeInc();
+
+    public abstract Particle getParticle();
+
 }
